@@ -4,6 +4,7 @@
 
     <h1>Programação Orientada a Objetos</h1>
     <p>Lista</p>
+    <a href="compras/adicionar">Criar</a>
 
     <ul>
     <?php foreach ($this->compras as $compra => $values) :?>
