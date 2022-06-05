@@ -1,16 +1,19 @@
 <?php
 namespace App\Models;
 
+use Config\Db;
+
 class Compra
 {
     static public function all() 
     {
-        return  [
-            ["titulo" => "Carvão", "desc" => "5kg"],
-            ["titulo" => "Arroz", "desc" => "1kg"],
-            ["titulo" => "Cerveja", "desc" => "Lata"],
-            ["titulo" => "Sal grosso", "desc" => "1kg"]
-        ];
+        $conn = Db::conexao();
+        $select = "select * from compras";
+        $ret = $conn->query($select);
+        $compras = $ret->fetchAll();
+        
+        return $compras;
+
     }
 }
 //teste

@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php $this->tituloPagina = 'Home'; ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>POO</title>
-</head>
-
-<body>
+<?php include 'Layout/topo.php'; ?>
     <h1>Programação Orientada a Objetos</h1>
     <p>Lista</p>
 
@@ -18,7 +10,5 @@
     <?php endforeach ?>
     </ul>
 
-</body>
-
-</html>
+<?php include 'Layout/rodape.php'; ?>
 
