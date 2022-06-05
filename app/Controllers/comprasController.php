@@ -3,16 +3,13 @@ namespace App\Controllers;
 
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
+use App\Models\Compra;
 
 class ComprasController 
 {
     public function index(ServerRequestInterface $request, ResponseInterface $response)
     {
-        $compras = [
-            ["titulo" => "Carvão", "desc" => "5kg"],
-            ["titulo" => "Arroz", "desc" => "1kg"],
-            ["titulo" => "Cerveja", "desc" => "Lata"]
-        ];
+        $compras = Compra::all();
 
         $this->compras = $compras;
     
