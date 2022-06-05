@@ -18,13 +18,32 @@ class Model
   public function save()
   {
     $atributos = get_object_vars($this);
-    unset($atributos['tables']);
-    
-    $insert = "insert into compras (`titulo`, `desc`) values (:titulo, :desc)";
+    unset($atributos['table']);
+
+    $col = "(";
+    $val = "(";
+    $aux = true;
+    foreach ($atributos as $key => $value) {
+      if($aux){
+        $aux = false;
+        $col .= "`$key`";
+        $val .= ":$key";
+      }else{
+        $col .= ",`$key`";
+        $val .= ",:$key";
+      }
+    }
+    $col .= ")";
+    $val .= ")";
+
+    $insert = "insert into ".$this->table." ".$col." values ".$val;
+
     $conn = Db::conexao();
     $stmt = $conn->prepare($insert);
-    $stmt->bindParam(':titulo', $atributos['titulo']);
-    $stmt->bindParam(':desc', $atributos['desc']);
+    foreach ($atributos as $key => $value) {
+      $stmt->bindParam(':'.$key,$atributos[$key]);
+    }
+
     $stmt->execute();
     return $conn->lastInsertId();
 
