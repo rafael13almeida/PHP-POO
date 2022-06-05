@@ -13,8 +13,15 @@ class ComprasController
             ["titulo" => "Arroz", "desc" => "1kg"],
             ["titulo" => "Cerveja", "desc" => "Lata"]
         ];
+
+        $this->compras = $compras;
     
-        $pagina = include '../app/Views/home.php';
+        return $this->view('home', $response);
+    }
+
+    private function view($view, ResponseInterface $response)
+    {
+        $pagina = include '../app/Views/'.$view.'.php';
 
         $response->getBody()->getContents($pagina);
         return $response;

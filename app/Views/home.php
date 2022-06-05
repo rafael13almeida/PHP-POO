@@ -13,7 +13,7 @@
     <p>Lista</p>
 
     <ul>
-    <?php foreach ($compras as $compra => $values) :?>
+    <?php foreach ($this->compras as $compra => $values) :?>
         <li> <?php echo $values['titulo']; ?> - <?php echo $values['desc']; ?> </li>
     <?php endforeach ?>
     </ul>
