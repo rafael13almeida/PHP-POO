@@ -5,7 +5,7 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use App\Models\Compra;
 
-class ComprasController 
+class ComprasController extends Controlle
 {
     public function index(ServerRequestInterface $request, ResponseInterface $response)
     {
@@ -16,11 +16,4 @@ class ComprasController
         return $this->view('home', $response);
     }
 
-    private function view($view, ResponseInterface $response)
-    {
-        $pagina = include '../app/Views/'.$view.'.php';
-
-        $response->getBody()->getContents($pagina);
-        return $response;
-    }
 }
