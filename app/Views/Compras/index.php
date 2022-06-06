@@ -8,7 +8,9 @@
 
     <ul>
     <?php foreach ($this->compras as $compra => $values) :?>
-        <li> <?php echo $values['titulo']; ?> - <?php echo $values['desc']; ?> </li>
+        <li> <?php echo $values['titulo']; ?> - <?php echo $values['desc']; ?> 
+            <a href="/compras/detalhe/<?php echo $values['id']; ?>"><button>Detalhe</button></a>
+        </li>
     <?php endforeach ?>
     </ul>
 

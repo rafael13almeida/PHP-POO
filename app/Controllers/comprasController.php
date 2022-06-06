@@ -18,6 +18,15 @@ class ComprasController extends Controlle
 
     return $this->view('compras/index',$response);
   }
+  
+  public function detalhe(ServerRequestInterface $request, ResponseInterface $response)
+  {
+    $id = $request->getAttribute('id');
+    $compra = Compra::find($id);
+    $this->compra = $compra;
+
+    return $this->view('compras/show',$response);
+  }
 
   public function adicionar(ServerRequestInterface $request, ResponseInterface $response)
   {
