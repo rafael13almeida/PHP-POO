@@ -1,17 +1,18 @@
-<?php $this->tituloPagina = 'Home'; ?>
+<?php $this->tituloPagina = "Home"; ?>
 
 <?php $this->layout('layout.topo'); ?>
+    <h2>Lista de Compras</h2>
 
-    <h1>Programação Orientada a Objetos</h1>
-    <p>Lista</p>
-    <a href="compras/adicionar">Criar</a>
-
+    <a href="/compras/adicionar">Criar</a>
     <ul>
-    <?php foreach ($this->compras as $compra => $values) :?>
-        <li> <?php echo $values['titulo']; ?> - <?php echo $values['desc']; ?> 
-            <a href="/compras/detalhe/<?php echo $values['id']; ?>"><button>Detalhe</button></a>
+      <?php foreach ($this->compras as $key => $value): ?>
+        <li>
+          <?php echo  $value['titulo']?> - <?php echo  $value['desc']?>
+          <a href="/compras/detalhe/<?php echo  $value['id']?>"><button>Detalhe</button></a>
+          <a href="/compras/editar/<?php echo  $value['id']?>"><button>Editar</button></a>
+
         </li>
-    <?php endforeach ?>
+      <?php endforeach ?>
     </ul>
 
-    <?php $this->layout('layout.rodape'); ?>
+<?php $this->layout('layout.rodape'); ?>
