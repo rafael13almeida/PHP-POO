@@ -7,6 +7,7 @@ use Psr\Http\Message\ResponseInterface;
 use Slim\App;
 use App\Controllers\ComprasController;
 use App\Controllers\UsuariosController;
+use App\Controllers\AuthController;
 
 $app = new App;
 
@@ -27,5 +28,8 @@ $app->get('/usuarios/editar/{id}', UsuariosController::class . ':editar');
 $app->put('/usuarios/{id}', UsuariosController::class . ':atualizar');
 $app->delete('/usuarios/deletar/{id}', UsuariosController::class . ':deletar');
 
+$app->get('/login', AuthController::class . ':index');
+$app->post('/login', AuthController::class . ':entrar');
+$app->get('/logout', AuthController::class . ':sair');
 
 $app->run();
