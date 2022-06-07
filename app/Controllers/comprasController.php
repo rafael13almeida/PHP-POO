@@ -10,9 +10,9 @@ class ComprasController extends Controlle
 {
   public function index(ServerRequestInterface $request, ResponseInterface $response)
   {
-    $compras = Compra::all();
+    $modelo = Compra::all();
 
-    $this->compras = $compras;
+    $this->modelo = $modelo;
 
     return $this->view('compras/index',$response);
   }
@@ -20,8 +20,8 @@ class ComprasController extends Controlle
   public function detalhe(ServerRequestInterface $request, ResponseInterface $response)
   {
     $id = $request->getAttribute('id');
-    $compra = Compra::find($id);
-    $this->compra = $compra;
+   $modelo = Compra::find($id);
+    $this->modelo =$modelo;
 
     return $this->view('compras/show',$response);
   }
@@ -34,11 +34,11 @@ class ComprasController extends Controlle
   public function salvar(ServerRequestInterface $request, ResponseInterface $response)
   {
     $dados = $request->getParsedBody();
-    $compra = new Compra;
+   $modelo = new Compra;
 
-    $compra->titulo = $dados['titulo'];
-    $compra->desc = $dados['desc'];
-    $objCompra = $compra->save();
+   $modelo->titulo = $dados['titulo'];
+   $modelo->desc = $dados['desc'];
+    $objModelo =$modelo->save();
 
     return $response->withRedirect('/compras');
   }
@@ -46,8 +46,8 @@ class ComprasController extends Controlle
   public function editar(ServerRequestInterface $request, ResponseInterface $response)
   {
     $id = $request->getAttribute('id');
-    $compra = Compra::find($id);
-    $this->compra = $compra;
+   $modelo = Compra::find($id);
+    $this->modelo =$modelo;
     return $this->view('compras/edit',$response);
   }
 
@@ -55,11 +55,11 @@ class ComprasController extends Controlle
   {
     $dados = $request->getParsedBody();
     $id = $request->getAttribute('id');
-    $compra = Compra::find($id);
+   $modelo = Compra::find($id);
 
-    $compra->titulo = $dados['titulo'];
-    $compra->desc = $dados['desc'];
-    $objCompra = $compra->save();
+   $modelo->titulo = $dados['titulo'];
+   $modelo->desc = $dados['desc'];
+    $objModelo =$modelo->save();
 
     return $response->withRedirect('/compras');
   }
@@ -68,9 +68,9 @@ class ComprasController extends Controlle
   {
     
     $id = $request->getAttribute('id');
-    $compra = Compra::find($id);
+   $modelo = Compra::find($id);
 
-    $ok = $compra->delete();
+    $ok =$modelo->delete();
 
     return $response->withRedirect('/compras');
   }
