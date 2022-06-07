@@ -63,6 +63,17 @@ class ComprasController extends Controlle
 
     return $response->withRedirect('/compras');
   }
+  
+  public function deletar(ServerRequestInterface $request, ResponseInterface $response)
+  {
+    
+    $id = $request->getAttribute('id');
+    $compra = Compra::find($id);
+
+    $ok = $compra->delete();
+
+    return $response->withRedirect('/compras');
+  }
 
 
 }

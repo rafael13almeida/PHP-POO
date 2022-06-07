@@ -16,5 +16,6 @@ $app->get('/compras/adicionar', ComprasController::class . ':adicionar');
 $app->post('/compras', ComprasController::class . ':salvar');
 $app->get('/compras/editar/{id}', ComprasController::class . ':editar');
 $app->put('/compras/{id}', ComprasController::class . ':atualizar');
+$app->delete('/compras/deletar/{id}', ComprasController::class . ':deletar');
 
 $app->run();
