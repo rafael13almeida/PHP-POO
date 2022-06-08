@@ -2,8 +2,8 @@
 
 <?php $this->layout('layout.topo'); ?>
 
-    <h1>Adicionar Itens</h1>
-    <a href="compras/adicionar">Criar</a>
+    <h1 class="display-4">Adicionar Itens</h1>
+
 
 <form action="/compras" method="POST">
     
@@ -14,7 +14,7 @@
         <input type="text" name="desc" placeholder="Descrição">
     </p>
     
-    <button>Adicionar</button>
+    <button class="btn btn-primary btn-sm">Adicionar</button>
 
 </form>
 
